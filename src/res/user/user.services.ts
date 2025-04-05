@@ -3,7 +3,7 @@ import logger from "../../lib/logger";
 import UserModel, { User } from "./user.model";
 
 async function init() {
-  logger.info("User initialization");
+  logger.info("User initialization started");
   await UserModel.syncIndexes();
   logger.info("User initialization complete");
 }

@@ -7,15 +7,17 @@ export default async function connection() {
   logger.info("Establishing DB connection");
   await mongoose
     .connect(config.DB_URI)
-    .then(() => {
+    .then(async () => {
       logger.info("DB connection sucessful");
 
       // initialize services
+      logger.info("\n");
       logger.info("Initializing services");
-      userService.init();
+      await userService.init();
       logger.info("Services initialized");
+      logger.info("\n");
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       logger.error(`DB connection failed - ${err.message}`);
     });
 }
