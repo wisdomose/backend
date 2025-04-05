@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import Exception from "../lib/Exception";
 import jwt from "jsonwebtoken";
-import User from "../res/user/user.model";
+import userService from "../res/user/user.services";
 
 export default async function protectedRoute(
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   const auth = req.headers.authorization;
 
@@ -24,7 +24,7 @@ export default async function protectedRoute(
     throw new Exception({ code: 400, message: "Authorization failed" });
 
   // add user data to local state
-  const user = await User.findById(decoded._id, { password: 0 });
+  const user = await userService.findOne({ _id: decoded._id }, { password: 0 });
   res.locals.user = user;
 
   next();

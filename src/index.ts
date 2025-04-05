@@ -7,6 +7,6 @@ app.listen(config.PORT, () => {
   logger.info(`API running on ${config.PORT}`);
 });
 
-(async function (){
+(async function () {
   await connection();
 })();

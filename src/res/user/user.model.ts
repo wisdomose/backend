@@ -6,7 +6,7 @@ const user = new Schema(
   {
     strict: true,
     timestamps: true,
-  }
+  },
 );
 
 const User = model("User", user);
