@@ -40,8 +40,11 @@ A TypeScript-based Node.js backend service with Express and MongoDB.
 - `pnpm start` - Start production server
 - `pnpm test` - Run tests
 - `pnpm test-watch` - Run tests in watch mode
+- `pnpm clean` - Removes node_modules and build file
 - `pnpm lint` - Run ESLint
+- `pnpm lint:fix` - Fix ESLint errors
 - `pnpm format` - Format code with Prettier
+- `pnpm format:check` - Check code format with Prettier
 
 ## API Documentation
 
